@@ -13,4 +13,5 @@ ENV JAVA_HOME /usr/lib/jvm/java-17-openjdk-amd64/
 ENV PATH $JAVA_HOME/bin:$PATH
 
 # Start with gunicorn (or use python app.py for debug)
-CMD ["gunicorn", "app:app", "--bind", "0.0.0.0:${PORT:-10000}", "--timeout", "120", "--workers", "4"]
+CMD gunicorn -b 0.0.0.0:$PORT app:app
+
